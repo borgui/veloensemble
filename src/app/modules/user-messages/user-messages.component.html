@@ -1,0 +1,16 @@
+<div class="alert alert-success" role="alert" *ngIf="respond != null">
+    <span *ngIf="respond == 'accept'">La demande a bien été acceptée</span>
+    <span *ngIf="respond == 'refuse'">La demande a bien été refusée</span>
+
+</div>
+<div style="font-size:22px; margin-top:50px">
+  Messages
+<hr/>
+</div>
+<!-- <div>
+Aucun message
+</div> -->
+<div *ngFor="let message of messages">
+    <app-message [message]="message" (acceptUser)="acceptUser(message)" (refuseUser)="refuseUser(message)"></app-message>
+</div>
+<hr/>

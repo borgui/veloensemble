@@ -1,0 +1,134 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import './assets/css/home.css';
+@import '@fortawesome/fontawesome-free/css/all.css';
+@import './assets/css/component.css';
+@import './assets/css/color.css';
+@import './assets/css/bootstrap.css';
+@import './assets/css/input.css';
+@import './assets/css/media-queries.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.outer {
+  display : flex;
+  align-items : center;
+}
+
+/** INPUT  **/
+
+input {
+	outline: none;
+	border: none;
+}
+
+td, th{
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #E5E5E5;
+  font-size: 12px;
+  }
+
+textarea:focus, input:focus {
+  border-color: transparent !important;
+}
+
+input::-webkit-input-placeholder { color: #999999; }
+input:-moz-placeholder { color: #999999; }
+input::-moz-placeholder { color: #999999; }
+input:-ms-input-placeholder { color: #999999; }
+
+textarea::-webkit-input-placeholder { color: #999999; }
+textarea:-moz-placeholder { color: #999999; }
+textarea::-moz-placeholder { color: #999999; }
+textarea:-ms-input-placeholder { color: #999999; }
+
+
+
+textarea.input1 {
+  min-height: 150px;
+  border-radius: 25px;
+  padding: 12px 30px;
+}
+textarea.input1 + .shadow-input1 {
+  border-radius: 25px;
+}
+
+/*---------------------------------------------*/
+.wrap-input1 {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin-bottom: 20px;
+}
+
+.input1 {
+  display: block;
+  width: 100%;
+  background: #e6e6e6;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #666666;
+}
+
+.shadow-input1 {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 0px 0px 0px;
+  color: rgba(87,184,70, 0.5);
+}
+
+.input1:focus + .shadow-input1 {
+  -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
+  animation: anim-shadow 0.5s ease-in-out forwards;
+}
+
+@-webkit-keyframes anim-shadow {
+  to {
+    box-shadow: 0px 0px 80px 30px;
+    opacity: 0;
+  }
+}
+
+@keyframes anim-shadow {
+  to {
+    box-shadow: 0px 0px 80px 30px;
+    opacity: 0;
+  }
+}
+
+.mat-radio-outer-circle{
+    height: 10px;
+    border-color:#2ecc71;
+    width: 10px;
+  }
+  
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+    border-color:#2ecc71;
+}
+.mat-radio-inner-circle{
+    border-color:#2ecc71;
+    width: 10px;
+  }
+
+  .mat-radio-button.mat-accent .mat-radio-inner-circle{
+      background-color: #2ecc71;
+  }
+
+  .user-profil-pic {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }

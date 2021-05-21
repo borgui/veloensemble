@@ -1,0 +1,72 @@
+<app-header></app-header>
+<div class="container">
+    <div class="alert alert-success" role="alert" *ngIf="messageSent">
+        Vous avez envoyé une invitation à partager l'itinéraire
+    </div>
+  <div class="row">
+    <h2 class="center" style="margin-top:20px; margin-bottom:40px">Detail du trajet</h2>
+  </div>
+  <div class="row" >
+    <div class="col-6">
+      <div class="wrap-information">
+        <div class="outer" style="margin-bottom:10px">
+        <div class="user-profil-pic" *ngIf="owner != null" [style.backgroundImage]="'url('+ ownerImg +')'"></div>
+        <b *ngIf="owner != null" > {{owner.firstname}}</b>
+        </div>
+        <div><b>Itinéraire : </b>{{ride.originName}} <i class="fas fa-long-arrow-alt-right"></i> {{ride.destinationName}}</div>
+        <hr/>
+        <div><b>Cocyclistes :</b></div>
+        <div class="outer" style="margin-bottom:10px" *ngFor="let cocycliste of cocyclistes">
+            <div class="user-profil-pic" *ngIf="owner != null" [style.backgroundImage]="'url('+ getProfilePic(cocycliste._id) +')'"></div>
+            <b>{{cocycliste.firstname}}</b>
+        </div>
+        <hr/>
+        <div>
+          <span *ngIf="ride.goHour != null"><b>Départ : </b>{{getHour(ride.goHour)}}:{{getMinutes(ride.goHour)}}</span><span *ngIf="ride.returnHour != null"><b>Retour :
+            </b>{{getHour(ride.returnHour)}}:{{getMinutes(ride.returnHour)}}</span>
+        </div>
+        <hr/>
+        <div><b>Vitesse moyenne :</b> {{ride.speed}}km/h</div>
+        <hr/>
+        <div><b>Fréquence du trajet</b></div>
+        <table style="width:90%">
+          <tbody>
+            <tr>
+              <th id="th_lundi_13920809" scope="col">L</th>
+              <th id="th_mardi_13920809" scope="col">M</th>
+              <th id="th_mercredi_13920809" scope="col">M</th>
+              <th id="th_jeudi_13920809" scope="col">J</th>
+              <th id="th_vendredi_13920809" scope="col">V</th>
+              <th id="th_samedi_13920809" scope="col">S</th>
+              <th id="th_dimanche_13920809" scope="col">D</th>
+            </tr>
+            <tr class="green-emerald">
+              <td headers="th_lundi_13920809"><i class="fas fa-check" *ngIf="checkRideDay('L')"></i></td>
+              <td headers="th_mardi_13920809"><i class="fas fa-check" *ngIf="checkRideDay('M')"></i></td>
+              <td headers="th_mercredi_13920809"><i class="fas fa-check" *ngIf="checkRideDay('Me')"></i></td>
+              <td headers="th_jeudi_13920809"><i class="fas fa-check" *ngIf="checkRideDay('J')"></i></td>
+              <td headers="th_vendredi_13920809"><i class="fas fa-check" *ngIf="checkRideDay('V')"></i></td>
+              <td headers="th_samedi_13920809"><i class="fas fa-check" *ngIf="checkRideDay('S')"></i></td>
+              <td headers="th_dimanche_13920809"><i class="fas fa-check" *ngIf="checkRideDay('D')"></i></td>
+            </tr>
+          </tbody>
+        </table>
+        <hr/>
+        <div><b>Details:</b></div>
+        <div>{{ride.details}}</div>
+        <hr/>
+        <div style="margin-top:10px">
+          <span class="rounded-btn" *ngIf="ride.userId != currentUser._id && !ride.cocyclistes.includes(currentUser._id)" (click)="sendMessage()">
+            Partager le trajet
+          </span>
+          <span class="rounded-btn" *ngIf="ride.userId != currentUser._id" (click)="openContact()">
+            Contacter le créateur du trajet 
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+        <app-maps [route]="ride.route"></app-maps>
+      </div>
+  </div>
+</div>

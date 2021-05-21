@@ -1,0 +1,99 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <h2 style="margin-top:20px;">Publier un trajet</h2>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="row">
+        <h4>Itinéraire</h4>
+      </div>
+      <div class="row">
+        <div class="col-12">
+            <input id="typeahead-http"  class="input1" [inputFormatter]="formatter" placeholder="Votre depart" type="text" [(ngModel)]="origin" (change)="onChange()" [ngbTypeahead]="search"  [resultTemplate]="rt"  />
+        </div>
+        <div class="col-12">
+            <input id="typeahead-http"  class="input1" [inputFormatter]="formatter" placeholder="Votre destination" type="text" [(ngModel)]="destination" [ngbTypeahead]="search"  [resultTemplate]="rt"  />
+        </div>
+      </div>
+      <ng-template #rt let-r="result" let-t="term">
+          <ngb-highlight [result]="r.place_name" [term]="t"></ngb-highlight>
+        </ng-template>
+      <div class="row">
+        <h4>Horaire</h4>
+      </div>
+      <div class="row">
+      <div class="col-12" style="text-align: left">
+          <mat-radio-group aria-label="Select an option"  [(ngModel)]="ride.returnTrip">
+                  <mat-radio-button [value]="1" [checked]="ride.returnTrip == 1" style="margin-right:10px;">Aller simple</mat-radio-button>
+                  <mat-radio-button [value]="2">Aller retour</mat-radio-button>
+          </mat-radio-group>
+                    
+      </div>
+        <div class="col-12">
+          <h6>Départ</h6>
+        </div>
+        <div class="col-12">
+          <input type="time" placeholder="Heure de depart" class="input1"  [(ngModel)] = "goHour">
+        </div>
+        <div class="col-12" *ngIf="ride.returnTrip == 2">
+            <h6>Retour</h6>
+          </div>
+        <div class="col-12" *ngIf="ride.returnTrip == 2">
+          <input type="time" placeholder="Heure de retour" class="input1" [(ngModel)] = "returnHour">
+        </div>
+      </div>
+      <div class="row">
+        <h4>Frequence du trajet</h4>
+        <div class="col-12">
+            <table width="100%">
+                <tbody>
+                  <tr>
+                    <th id="th_lundi_13920809" scope="col">L</th>
+                    <th id="th_mardi_13920809" scope="col">M</th>
+                    <th id="th_mercredi_13920809" scope="col">M</th>
+                    <th id="th_jeudi_13920809" scope="col">J</th>
+                    <th id="th_vendredi_13920809" scope="col">V</th>
+                    <th id="th_samedi_13920809" scope="col">S</th>
+                    <th id="th_dimanche_13920809" scope="col">D</th>
+                  </tr>
+                  <tr class="green-emerald">
+                    <td headers="th_lundi_13920809"><input type="checkbox" (change)="addDayOfWeek($event, 'L')"></td>
+                    <td headers="th_mardi_13920809"><input type="checkbox" (change)="addDayOfWeek($event, 'M')"></td>
+                    <td headers="th_mercredi_13920809"><input type="checkbox" (change)="addDayOfWeek($event, 'Me')"></td>
+                    <td headers="th_jeudi_13920809"><input type="checkbox" (change)="addDayOfWeek($event, 'J')"></td>
+                    <td headers="th_vendredi_13920809"><input type="checkbox" (change)="addDayOfWeek($event, 'V')"></td>
+                    <td headers="th_samedi_13920809"><input type="checkbox" (change)="addDayOfWeek($event, 'S')"></td>
+                    <td headers="th_dimanche_13920809"><input type="checkbox" (change)="addDayOfWeek($event, 'D')"></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+      </div>
+      <div class="row">
+        <h4 class="col-12">Détails de l'annonce</h4>
+        <div class="row">
+            <div class="col-6">
+                <h6>Vitesse moyenne (km/h) :</h6>
+              </div>
+              <div class="col-4">
+                <input class="input1" type="number" [(ngModel)] = "ride.speed">
+              </div>
+        </div>
+       
+        <div class="col-12" style="margin-top:10px">
+          <textarea [(ngModel)]="ride.details" rows="4" cols="60" placeholder="Détails supplémentaires: flexibilité des heures, de la vitesse etc..."></textarea>
+        </div>
+        <div class="col-12" style="margin-top:10px">
+          <button class="rounded-btn" (click)="send()">Valider le trajet</button>
+        </div>
+      </div>
+     
+    </div>
+    <div class="col-6">
+      <app-maps (selectedRoute)="onSelectedRoute($event)" [origin]="origin.geometry ? origin.geometry.coordinates: null" [destination]="destination.geometry ? destination.geometry.coordinates: null"></app-maps>
+      <div>Vous pouvez selectionner un autre trajet en cliquant dessus</div>
+    </div>
+
+  </div>
+</div>

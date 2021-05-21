@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand logo" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <!-- <li class="nav-item active">
+        <a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link black-logo"  href="/search">Rechercher</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link black-logo"  href="/new">Proposer un trajet</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link black-logo"  href="/search">Nous contacter</a>
+          </li>
+
+    </ul>
+    <ul class="navbar-nav" *ngIf="!(userConnected())">
+        <li class="nav-item">
+            <a class="nav-link" href="#" (click)="openSignWindow()"><span class="green-logo"><b><i class="far fa-check-circle"></i> Inscription</b></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" (click)="openLogin()"><span class="green-logo"><b><i class="fas fa-user"></i> Connexion</b></span></a>
+          </li>
+    </ul>
+    <ul class="navbar-nav" *ngIf="userConnected()">
+        <li class="nav-item">
+          <a href="/user/dashboard" id="logo-btn" class="outer green-logo">
+            <div class="user-profil-pic" [style.backgroundImage]="'url('+ profileImgPath +')'"></div>
+            <b>{{user.firstname}}</b>
+            </a>
+          </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,30 @@
+<div style="font-size:1.5rem; text-align: center"><b>Informations personnelles</b></div>
+<div class="alert alert-success" role="alert" *ngIf="updated">
+      Vos informations ont bien été mis à jour
+</div>
+<div class="nomFormul" style="margin-top:50px" >
+      <div>Modifier ma photo de profil </div>
+      <input type="file" name="myFile" (change)="file = $event">
+</div> 
+<div class="nomFormul">
+      Nom <div class="input-group"> <input id="nom" class="form-control" type="text" [(ngModel)]="user.name"></div> 
+</div>
+<div class="nomFormul">
+      Prénom <div class="input-group"> <input id="prenom" class="form-control" type="text" [(ngModel)]="user.firstname"></div> 
+</div>
+<div class="nomFormul">
+      Adresse <div class="input-group"> <input id="adresse" class="form-control" type="text" [(ngModel)]="user.adresse"></div>
+</div>
+<div class="nomFormul">
+      Email <div class="input-group "> <input id="email" class="form-control" type="email" [(ngModel)]="user.email"></div>
+</div>
+<div class="nomFormul">
+      Numèro <div class="input-group "> <input id="numero" class="form-control" type="tel" [(ngModel)]="user.tel"></div>
+</div>
+<div class="nomFormul">
+      Bio <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"[(ngModel)]="user.bio"></textarea>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark centrer" (click)="update()">Enregistrer</button>
+</div>
+

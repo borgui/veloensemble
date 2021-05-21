@@ -1,0 +1,35 @@
+<div class="alert alert-success" role="alert" *ngIf="removed">
+    Vous avez bien mis fin au trajet en cours
+</div>
+<div style="font-size:1.5rem; text-align: center"><b>Bonjour {{user.firstname}} !</b></div>
+<div style="font-size:22px; margin-top:50px">
+    <i class="fas fa-bicycle"></i> Trajet en cours
+    <hr />
+</div>
+<div>
+    <div class="trajet" *ngIf="ride != null">
+        <app-ride-card [ride]="ride" [type]="rideType" (removeRide)="removeRide()"></app-ride-card>
+    </div>
+<div class="trajet" *ngIf="ride == null">
+Aucun trajet en cours
+</div>
+<div style="font-size:22px; margin-top:50px">
+    <i class="far fa-envelope"></i> Nouveaux messages
+    <hr />
+</div>
+<div *ngIf="message == null">
+    Aucun nouveaux messages
+</div>
+<div *ngIf="message != null">
+    <app-message [message]="message"></app-message>
+</div>
+<div>
+
+    <div style="font-size:22px; margin-top:50px">
+        <i class="fas fa-chart-line"></i> Vos statistiques
+        <hr />
+    </div>
+    <div>
+        Pas de statistique disponible
+    </div>
+</div>

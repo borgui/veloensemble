@@ -1,0 +1,41 @@
+.rounded-btn{
+    background-color: #2ecc71; /* Green */
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 30px
+}
+
+.rounded-btn-black{
+background-color: #434343; /* Green */
+border: none;
+color: white;
+padding: 10px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+border-radius: 30px
+}
+
+.rounded-btn-red{
+    background-color: #ff3f34; /* Green */
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 30px
+    }

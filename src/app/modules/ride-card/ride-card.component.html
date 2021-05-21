@@ -1,0 +1,55 @@
+<div class="ride" *ngIf="user != null">
+  <div class="person">
+    <div class="user-profil-pic" *ngIf="url != null"  [style.backgroundImage]="'url('+ url +')'"></div>
+    <div class="green-emerald"><b>{{user.firstname}}</b></div>
+    <div *ngIf="ride.luggage"><i class="fas fa-luggage-cart"></i><span class="velib"></span></div>
+    <div class="cycle"></div>
+    <div class="scooter"></div>
+  </div>
+  <div class="information">
+    <div class="wrap-information">
+      <div><b>{{ride.originName}} <i class="fas fa-long-arrow-alt-right"></i> {{ride.destinationName}}</b></div>
+      <div>
+        <b><span>Départ: {{getHour(ride.goHour)}}:{{getMinutes(ride.goHour)}}</span><span *ngIf="ride.returnHour != null">Retour:
+          {{getHour(ride.returnHour)}}:{{getMinutes(ride.returnHour)}}</span></b>
+
+      </div>
+      <br />
+      <div> Vitesse moyenne : {{ride.speed}}km/h</div>
+      <div> Fréquence du trajet</div>
+      <table style="width:90%">
+        <tbody>
+          <tr>
+            <th id="th_lundi_13920809" scope="col">L</th>
+            <th id="th_mardi_13920809" scope="col">M</th>
+            <th id="th_mercredi_13920809" scope="col">M</th>
+            <th id="th_jeudi_13920809" scope="col">J</th>
+            <th id="th_vendredi_13920809" scope="col">V</th>
+            <th id="th_samedi_13920809" scope="col">S</th>
+            <th id="th_dimanche_13920809" scope="col">D</th>
+          </tr>
+          <tr class="green-emerald">
+            <td headers="th_lundi_13920809"><i class="fas fa-check" *ngIf="checkRideDay('L')"></i></td>
+            <td headers="th_mardi_13920809"><i class="fas fa-check" *ngIf="checkRideDay('M')"></i></td>
+            <td headers="th_mercredi_13920809"><i class="fas fa-check" *ngIf="checkRideDay('Me')"></i></td>
+            <td headers="th_jeudi_13920809"><i class="fas fa-check" *ngIf="checkRideDay('J')"></i></td>
+            <td headers="th_vendredi_13920809"><i class="fas fa-check" *ngIf="checkRideDay('V')"></i></td>
+            <td headers="th_samedi_13920809"><i class="fas fa-check" *ngIf="checkRideDay('S')"></i></td>
+            <td headers="th_dimanche_13920809"><i class="fas fa-check" *ngIf="checkRideDay('D')"></i></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:10px">
+        <span class="rounded-btn" (click)="openRideDetail()">
+          Voir l'annonce
+        </span>
+        <span class="rounded-btn-black" (click)="openMaps()">
+          Voir l'itinéraire
+        </span>
+        <span *ngIf="type == 'user'" class="rounded-btn-red" (click)="onRemoveClick()">
+           Mettre fin au trajet
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

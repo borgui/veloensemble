@@ -1,0 +1,10 @@
+<div style="font-size:1.5rem; text-align: center"><b>Historique des trajets</b></div>
+<div style="font-size:22px; margin-top:50px">
+  Historique des trajets
+<hr/>
+</div>
+<div class="trajet" *ngFor="let archivedRide of archivedRides">
+  <app-ride-card [ride]="archivedRide" type="archive"></app-ride-card>
+</div>
+<br/>
+<hr/>

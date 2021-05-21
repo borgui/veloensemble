@@ -1,0 +1,54 @@
+<app-header></app-header>
+<div class="row" style="margin-top:20px">
+  <div class="col-md-2">
+
+  </div>
+  <div class="col-10" style="text-align: left">
+    <mat-radio-group aria-label="Select an option" [(ngModel)]="searchParams.returnTrip" (change)="searchRide()">
+      <mat-radio-button value="1" [value]="1" [checked]="searchParams.returnTrip == 1"  style=" font-size:16px;margin-right:10px">Aller simple</mat-radio-button>
+      <mat-radio-button value="2" style="font-size:16px">Aller retour</mat-radio-button>
+    </mat-radio-group>
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-1">
+  </div>
+  <div class="col-6 col-md-4">
+    <input id="typeahead-http" class="input1" [inputFormatter]="formatter" placeholder="Votre depart" type="text"
+        (selectItem)="onSelectItem($event, 'origin')" [ngbTypeahead]="search" [resultTemplate]="rt" />
+  </div>
+  <div class="col-6 col-md-2">
+    <input type="time" placeholder="Heure de depart" [(ngModel)]="goHour" (change)="searchRide()"
+      class="input1">
+  </div>
+  <div class="col-sm-12 d-md-none" style="height:10px"></div>
+  <div class="col-6 col-md-4">
+    <input id="typeahead-http" class="input1" [inputFormatter]="formatter" placeholder="Votre destination" type="text"
+      (selectItem)="onSelectItem($event, 'destination')" [ngbTypeahead]="search" [resultTemplate]="rt" />
+  </div>
+  <!-- <div class="col-6 col-md-2">
+    <input type="time" placeholder="Heure de retour" [(ngModel)]="searchParams.returnHour" (change)="searchRide()"
+      class="input1">
+  </div> -->
+  <ng-template #rt let-r="result" let-t="term">
+    <ngb-highlight [result]="r.place_name" [term]="t"></ngb-highlight>
+  </ng-template>
+</div>
+<div class="row" style="margin-top:40px" *ngFor="let ride of rideResult">
+  <div class="col-2">
+
+  </div>
+  <div class="col-12 col-md-8">
+    <app-ride-card [ride]="ride"></app-ride-card>
+  </div>
+</div>
+<div class="col-4">
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- Homepage Leaderboard -->
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1234567890123456"
+    data-ad-slot="1234567890"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>

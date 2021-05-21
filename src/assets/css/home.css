@@ -1,0 +1,12 @@
+.fullscreen-slide {
+    background-size: cover;
+    min-height: 91.5%;
+    text-align: center;
+    opacity: 1;
+    position:relative
+}
+
+
+.home-bg{
+    background-image: url('../img/home_bg2.jpg');
+}

@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-title">Contacter l'utilisateur</h4>
+    <button type="button" class="close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div style="margin-bottom:10px"><b>Pour vous aidez à plannifier vos trajets en commun, vous pouvez contacter {{recipient.firstname}} de plusieurs façons: </b></div>
+    <div><i class="fas fa-phone"></i> {{recipient.tel}}</div>
+    <div><i class="fas fa-envelope"></i> {{recipient.email}}</div>
+    <div><b>Nouveau message</b></div>
+    <div>
+        <input type="text" [(ngModel)]="title" placeholder="Objet">
+        <textarea [(ngModel)]="body" rows="4" cols="55" placeholder="Votre message"></textarea>
+      </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+    <button type="button" class="btn btn-danger" (click)="modal.close('Ok click')">Ok</button>
+  </div>

@@ -1,0 +1,74 @@
+<app-header></app-header>
+
+<div class="fullscreen-slide home-bg">
+
+    <h1 class="title">
+        <b>Bienvenue dans la 1ère communauté <br /> de <span class="green-emerald">Cocyclisme</span> !</b>
+
+    </h1>
+    <div class="row" style="margin-top:50px">
+        <div class="col-md-3 col-1">
+
+        </div>
+        <div class="col-md-3 col-10" style="text-align: left">
+                <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button value="1" style="color:white; font-size:16px;margin-right:10px">Aller simple</mat-radio-button>
+                        <mat-radio-button value="2"  style="color:white;font-size:16px">Aller retour</mat-radio-button>
+                </mat-radio-group>
+                      
+        </div>
+        <div class="col-md-3 col-5">
+
+        </div>
+    </div>
+    <div class="row" style="margin-top:20px">
+        <div class="col-md-3 col-1">
+        </div>
+        <div class="col-md-3 col-5">
+            <input id="typeahead-http"  class="input1" [inputFormatter]="formatter" placeholder="Votre depart" type="text" [(ngModel)]="origin" [ngbTypeahead]="search"  [resultTemplate]="rt"  />
+        </div>
+        <div class="col-md-3 col-5">
+                <input type="time" placeholder="Heure de depart" id='timepickerstart'class="input1">
+            </div>
+            <ng-template #rt let-r="result" let-t="term">
+                    <ngb-highlight [result]="r.place_name" [term]="t"></ngb-highlight>
+                  </ng-template>
+    </div>
+    <div class="row" style="margin-top:20px">
+            <div class="col-md-3 col-1">
+            </div>
+
+            <div class="col-md-3 col-5">
+                    <input id="typeahead-http"  class="input1" [inputFormatter]="formatter" placeholder="Votre destination" type="text" [(ngModel)]="destination" [ngbTypeahead]="search"  [resultTemplate]="rt"  />
+                </div>
+            <div class="col-md-3 col-5">
+                <input type="time" placeholder="Heure de retour" id="timepickerend" class="input1">
+            </div>
+        </div>
+        <div class="row" style="margin-top:20px">
+                <div class="col-md-3 col-1">
+        
+                </div>
+                <!-- <div class="col-3" style="text-align: left">
+                        <mat-radio-group aria-label="Select an option">
+                                <mat-radio-button value="1" style="color:white; font-size:16px;margin-right:10px">Trajet quotidien</mat-radio-button>
+                                <mat-radio-button value="2"  style="color:white;font-size:16px">Trajet ponctuel</mat-radio-button>
+                        </mat-radio-group>
+                              
+                </div> -->
+                <div class="col-md-3 col-5" style="text-align:left">
+                        <div class="rounded-btn">
+                                Rechercher un trajet
+                              </div>
+                </div>
+                <div class="col-md-3 col-5" style="text-align:left">
+                        <div class="rounded-btn-black">
+                                Proposer un trajet
+                              </div>
+                </div>
+            </div>
+            <div class="height:60px">
+
+            </div>
+</div>
+        

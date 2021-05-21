@@ -1,0 +1,52 @@
+.input-group {
+    display: inline-block;
+    width: auto;
+    margin-left: 5px;
+}
+
+.form-control {
+    width: 250px;
+}
+
+.nomFormul {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.centrer {
+    text-align: center;
+    margin : auto;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+#nom {
+    margin-left: 21px;
+}
+
+#prenom {
+    margin-left: 2px;
+}
+
+#adresse {
+    width : 400px;
+    margin-left: 2px;
+}
+
+#email {
+    margin-left: 19px;
+}
+
+#numero {
+    margin-left: 3px;
+}
+
+#bio {
+    width : 400px;
+    margin-left: 33px;
+}
+
+#exampleFormControlTextarea1 {
+    width: 100%;
+}

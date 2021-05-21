@@ -1,0 +1,27 @@
+@media screen and (min-width: 200px) and (max-width: 720px) {
+    h1 {
+        font-size:2rem
+    }
+
+    input.input1 {
+        font-size:1rem;
+        padding: 0 0px;
+        text-align:center;
+    }
+
+    #timepickerstart:before {
+        content:'';
+        margin-right:0em;
+        color:#9d9d9d;
+    }
+    
+    #timepickerend:before {
+        content:"";
+        margin-right:0em;
+        color:#9d9d9d;
+        }
+
+        .modalClass .modal-dialog {
+            max-width: 565px;
+            }
+  }

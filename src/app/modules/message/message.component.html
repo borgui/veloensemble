@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-3"><b>{{message.senderFirstname}}</b></div>
+    <div class="col-1"></div>
+    <div class="col-8" *ngIf="message.type == 2">{{message.senderFirstname}} souhaite partager votre itinéraire</div>
+</div>
+<div class="row " *ngIf="message.type == 2">
+    <div class="col-4"></div>
+    <div class="col-8">
+        <button class="rounded-btn" (click)="onAcceptUser()">Accepter</button>
+        <button class="rounded-btn black-bg" (click)="onRefuseUser()" style="margin-left:10px">Refuser</button>
+    </div>
+</div>

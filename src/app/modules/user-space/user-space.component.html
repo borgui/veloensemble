@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="container">
+        <div class="row" style="margin-top:50px;">
+            <div class="col-3 menu">
+                <div class="profil-pic">
+                    <img [src]="url">
+                </div>
+                <div>
+                    <a routerLink="dashboard"><button class="rounded-btn">Tableau de bord</button></a>
+                </div>
+                <div>
+                    <a routerLink="profil"><button class="rounded-btn">Mon profil</button></a>
+                </div>
+                <div>
+                    <a routerLink="previous-ride"><button class="rounded-btn">Historique des trajets</button></a>
+                </div>
+                <div>
+                    <a routerLink="messages"><button class="rounded-btn">Messages</button></a>
+                </div>
+                <div>
+                    <a routerLink="statistics"><button class="rounded-btn">Statistiques</button></a>
+                </div>
+            </div>
+            <div class="col-7 main-content">
+                <router-outlet></router-outlet>
+            </div>
+            <div class="col-2"></div>
+        </div>
+</div>

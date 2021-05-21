@@ -1,0 +1,47 @@
+.ride {
+    background-color: #ffffff;
+    border: 1px #e5e5e5 solid;
+    border-radius: 3px;
+}
+
+.ride {
+    margin: 0px 0px 20px 0px;
+    overflow: hidden;
+    clear: both;
+}
+
+.person {
+    float: left;
+    overflow: hidden;
+    width:20%;
+    text-align:center;
+    padding-top:20px;
+}
+
+.information {
+    float: right;
+    width:80%;
+}
+
+.wrap-information {
+    padding: 20px;
+    overflow: hidden;
+    border-left: 1px solid #E5E5E5;
+}
+
+.test-1{
+    background-image: url("../../../assets/img/girl.jpg")
+}
+
+.test-2{
+    background-image: url("../../../assets/img/man.jpg")
+}
+
+.velib{
+    background-image: url("../../../assets/img/velib-logo.gif");
+    width:20px;
+    height:20px;
+    background-position: center center;
+    background-size:contain;
+    background-repeat: no-repeat
+}
